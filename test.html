@@ -6,6 +6,8 @@
     <title>The German Dream</title>
     <!-- Link to Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom Properties for Colors and Sizes */
         :root {
@@ -13,16 +15,17 @@
             --secondary-color: #ffb300;
             --text-color: #333;
             --background-color: #f0f0f0;
-            --overlay-color: rgba(0, 0, 0, 0.4);
+            --overlay-color: rgba(0, 0, 0, 0.5);
             --button-hover-color: #e6b800;
             --card-background: #ffffff;
             --card-shadow: rgba(0, 0, 0, 0.1);
-            --card-hover-shadow: rgba(0, 0, 0, 0.15);
+            --card-hover-shadow: rgba(0, 0, 0, 0.2);
             --button-font-size: 1.2em;
             --header-font-size: clamp(2.5rem, 5vw, 4rem);
             --slogan-font-size: clamp(1.2rem, 2vw, 1.5rem);
             --nav-font-size: 1em;
-            --nav-link-padding: 0.5em 1em;
+            --nav-link-padding: 0.75em 1.5em;
+            --transition-duration: 0.3s;
         }
 
         /* General Reset */
@@ -51,7 +54,6 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
             padding: 0 20px;
         }
 
@@ -75,6 +77,7 @@
             justify-content: center;
             align-items: center;
             z-index: 2;
+            gap: 20px;
         }
 
         .navbar a {
@@ -82,14 +85,16 @@
             text-decoration: none;
             padding: var(--nav-link-padding);
             font-size: var(--nav-font-size);
-            transition: color 0.3s ease, background-color 0.3s ease;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: color var(--transition-duration), background-color var(--transition-duration), transform var(--transition-duration);
             position: relative;
         }
 
         .navbar a:hover {
             color: var(--primary-color);
             background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
+            transform: scale(1.05);
         }
 
         .typewriter h1 {
@@ -149,7 +154,7 @@
             font-weight: 600;
             border-radius: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background var(--transition-duration), transform var(--transition-duration), box-shadow var(--transition-duration);
             z-index: 2;
             position: relative;
         }
@@ -180,6 +185,8 @@
             margin-bottom: 20px;
             color: #000;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section p {
@@ -193,10 +200,11 @@
 
         /* Highlighted Service Section */
         .highlight {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 40px 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 15px var(--card-shadow);
         }
 
         .highlight h2 {
@@ -225,6 +233,7 @@
             margin-bottom: 20px;
             font-weight: 700;
             color: #000;
+            text-transform: uppercase;
         }
 
         .benefits .benefit-item {
@@ -233,9 +242,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #333;
+            font-weight: 500;
         }
 
-        .benefits .benefit-item span {
+        .benefits .benefit-item i {
+            color: var(--primary-color);
             margin-left: 10px;
             font-size: 1.5em;
         }
@@ -253,7 +265,7 @@
             background-color: var(--card-background);
             border-radius: 15px;
             box-shadow: 0 4px 15px var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform var(--transition-duration), box-shadow var(--transition-duration);
             font-weight: 300;
         }
 
@@ -286,7 +298,7 @@
         footer a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color var(--transition-duration);
         }
 
         footer a:hover {
@@ -353,9 +365,9 @@
         <!-- Your Benefits Section -->
         <div class="benefits">
             <h2>Your Benefits</h2>
-            <div class="benefit-item">Exceptional support and guidance <span>✅</span></div>
-            <div class="benefit-item">Personalized solutions to your needs <span>✅</span></div>
-            <div class="benefit-item">Affordable pricing without compromising quality <span>✅</span></div>
+            <div class="benefit-item">Exceptional support and guidance <i class="fas fa-check-circle"></i></div>
+            <div class="benefit-item">Personalized solutions to your needs <i class="fas fa-check-circle"></i></div>
+            <div class="benefit-item">Affordable pricing without compromising quality <i class="fas fa-check-circle"></i></div>
         </div>
 
         <!-- Features Section -->
