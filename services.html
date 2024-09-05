@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - The German Dream</title>
+    <!-- Link to Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            height: 70vh;
+            background-image: url('https://thegermandream.de/Germany1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-top: 15px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .service-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            width: 30%;
+            padding: 20px;
+            margin: 15px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .service-item i {
+            font-size: 2.5em;
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-item {
+                width: 80%;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div>
+            <h1>Our Services</h1>
+            <p>Fast, reliable, and affordable services tailored for your needs</p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2>Your Benefits</h2>
+        <div class="service-items">
+            <div class="service-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Education Assistance</h3>
+                <p>Helping you find educational opportunities in Germany.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-briefcase"></i>
+                <h3>Job Placement</h3>
+                <p>Guiding you through the process to secure your dream job.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-home"></i>
+                <h3>Relocation Support</h3>
+                <p>Providing reliable relocation services to make your transition easier.</p>
+            </div>
+        </div>
+        <div class="service-items">
+            <div class="service-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Training &amp; Skills</h3>
+                <p>Equip yourself with the necessary skills for career success.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-users"></i>
+                <h3>Networking</h3>
+                <p>Connecting you with the right people to accelerate your growth.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>Reliable Service</h3>
+                <p>Fast, affordable, and dependable solutions for every step of the way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 The German Dream. All rights reserved. | <a href="#">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>
