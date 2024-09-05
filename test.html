@@ -62,11 +62,11 @@
         /* Call-to-action button */
         .cta-button {
             margin-top: 40px;
-            padding: 15px 40px;
+            padding: 15px 30px;
             background-color: #ffcc00;
             color: black;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: bold;
             border-radius: 50px;
             transition: all 0.3s ease;
@@ -188,13 +188,13 @@
         </h1>
         <p class="slogan">Wir helfen Ihnen, um Ihre Träume zu erreichen</p>
         <!-- Call-to-action button -->
-        <a href="#" class="cta-button">Join Us Now</a>
+        <a href="#more-info" class="cta-button" id="scroll-button">More Information</a>
     </header>
 
     <!-- Main Content Section -->
     <div class="content">
         <!-- About Section -->
-        <div class="section">
+        <div class="section" id="more-info">
             <h2>About The German Dream</h2>
             <p>
                 The German Dream is a movement dedicated to helping individuals achieve their personal and professional aspirations. 
@@ -226,6 +226,19 @@
     <footer>
         &copy; 2024 The German Dream. All rights reserved. | <a href="#">Privacy Policy</a>
     </footer>
+
+    <!-- Smooth Scroll JavaScript -->
+    <script>
+        document.getElementById('scroll-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 </html>
