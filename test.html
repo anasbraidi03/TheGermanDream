@@ -4,7 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The German Dream</title>
+    <!-- Link to Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom Properties for Colors and Sizes */
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #ffb300;
+            --text-color: #333;
+            --background-color: #f0f0f0;
+            --overlay-color: rgba(0, 0, 0, 0.4);
+            --button-hover-color: #e6b800;
+            --card-background: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --card-hover-shadow: rgba(0, 0, 0, 0.15);
+            --button-font-size: 1.2em;
+            --header-font-size: clamp(2.5rem, 5vw, 4rem);
+            --slogan-font-size: clamp(1.2rem, 2vw, 1.5rem);
+            --nav-font-size: 1em;
+            --nav-link-padding: 0.5em 1em;
+        }
+
         /* General Reset */
         * {
             margin: 0;
@@ -12,16 +32,16 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-color: #f4f4f4;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
             overflow-x: hidden;
         }
 
-        /* Hero Section with Background */
+        /* Header Navigation Bar */
         header {
             height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754'); /* Example background image */
+            background-image: url('https://yourimageurl.com/background.jpg'); /* Replace with your image URL */
             background-size: cover;
             background-position: center;
             color: white;
@@ -31,6 +51,8 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow: hidden;
+            padding: 0 20px;
         }
 
         header::before {
@@ -40,60 +62,124 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+            background-color: var(--overlay-color); /* Dark overlay for text readability */
             z-index: 1;
         }
 
-        h1 {
-            font-size: 4em;
-            font-style: italic;
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 2;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: var(--nav-link-padding);
+            font-size: var(--nav-font-size);
+            transition: color 0.3s ease, background-color 0.3s ease;
             position: relative;
         }
 
-        p.slogan {
-            font-size: 1.5em;
-            margin-top: 10px;
-            font-style: italic;
-            z-index: 2;
+        .navbar a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+
+        .typewriter h1 {
+            font-size: var(--header-font-size);
+            font-weight: 700;
+            color: white;
             position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid orange;
+            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+            z-index: 2;
+        }
+
+        .typewriter p.slogan {
+            font-size: var(--slogan-font-size);
+            margin-top: 10px;
+            font-weight: 300;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid orange;
+            animation: typing-slogan 6s steps(30, end), blink-caret-slogan 0.75s step-end infinite;
+            line-height: 1.4;
+            z-index: 2;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        @keyframes typing-slogan {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret-slogan {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
         }
 
         /* Call-to-action button */
         .cta-button {
             margin-top: 40px;
             padding: 15px 30px;
-            background-color: #ffcc00;
-            color: black;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
             text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            font-size: var(--button-font-size);
+            font-weight: 600;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             z-index: 2;
             position: relative;
         }
 
         .cta-button:hover {
-            background-color: #e6b800;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Content Section */
         .content {
-            padding: 60px 40px;
+            padding: 60px 20px;
             text-align: center;
             background-color: white;
+            display: grid;
+            gap: 40px;
         }
 
         .section {
-            margin: 40px 0;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
         }
 
         .section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #000;
+            font-weight: 700;
         }
 
         .section p {
@@ -102,35 +188,85 @@
             max-width: 800px;
             margin: 0 auto;
             color: #555;
+            font-weight: 300;
+        }
+
+        /* Highlighted Service Section */
+        .highlight {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+
+        .highlight h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .highlight p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--card-background);
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--card-shadow);
+        }
+
+        .benefits h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .benefits .benefit-item {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefits .benefit-item span {
+            margin-left: 10px;
+            font-size: 1.5em;
         }
 
         /* Features Section */
         .features {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 50px;
         }
 
         .feature-item {
-            width: 30%;
             padding: 20px;
-            margin: 20px;
-            background-color: #f9f9f9;
+            background-color: var(--card-background);
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 300;
         }
 
         .feature-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 30px var(--card-hover-shadow);
         }
 
         .feature-item h3 {
             font-size: 1.8em;
             margin-bottom: 15px;
             color: #333;
+            font-weight: 500;
         }
 
         .feature-item p {
@@ -148,45 +284,51 @@
         }
 
         footer a {
-            color: #ffcc00;
+            color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #e6b800;
+            color: var(--button-hover-color);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
+            .typewriter h1 {
                 font-size: 2.5em;
             }
-            p.slogan {
+            .typewriter p.slogan {
                 font-size: 1.2em;
             }
             .cta-button {
-                font-size: 1.2em;
-                padding: 10px 30px;
+                font-size: 1em;
+                padding: 10px 20px;
             }
             .features {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
-            .feature-item {
-                width: 80%;
+            .benefits .benefit-item {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Header with Navigation Bar -->
     <header>
-        <h1>
-            <span style="color: black;">The</span><span style="color: red;">German</span><span style="color: yellow;">Dream</span>
-        </h1>
-        <p class="slogan">Wir helfen Ihnen, um Ihre Träume zu erreichen</p>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="typewriter">
+            <h1>
+                <span style="color: black;">The</span><span style="color: red;">German</span><span style="color: yellow;">Dream</span>
+            </h1>
+            <p class="slogan" style="color: black;">Wir helfen Ihnen, um Ihre Träume zu erreichen</p>
+        </div>
         <!-- Call-to-action button -->
         <a href="#more-info" class="cta-button" id="scroll-button">More Information</a>
     </header>
@@ -202,21 +344,35 @@
             </p>
         </div>
 
+        <!-- Highlighted Service Section -->
+        <div class="highlight">
+            <h2>Fast, Reliable, and Affordable Service</h2>
+            <p>We pride ourselves on delivering services that are not only efficient but also dependable and cost-effective. Our team is committed to providing you with top-notch support to help you achieve your goals quickly and effectively.</p>
+        </div>
+
+        <!-- Your Benefits Section -->
+        <div class="benefits">
+            <h2>Your Benefits</h2>
+            <div class="benefit-item">Exceptional support and guidance <span>✅</span></div>
+            <div class="benefit-item">Personalized solutions to your needs <span>✅</span></div>
+            <div class="benefit-item">Affordable pricing without compromising quality <span>✅</span></div>
+        </div>
+
         <!-- Features Section -->
         <div class="section">
-            <h2>Our Key Features</h2>
+            <h2>Our Services</h2>
             <div class="features">
                 <div class="feature-item">
-                    <h3>Personalized Guidance</h3>
-                    <p>Receive expert advice tailored to your unique goals and get the roadmap to success.</p>
+                    <h3>Education</h3>
+                    <p>We help you find an apprenticeship contract.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Extensive Resources</h3>
-                    <p>Access workshops, tools, and seminars designed to empower and guide you toward your dreams.</p>
+                    <h3>Studying</h3>
+                    <p>We help you get admission.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Global Network</h3>
-                    <p>Connect with professionals and mentors worldwide to expand your opportunities and build your network.</p>
+                    <h3>Work</h3>
+                    <p>We help you find an employment contract.</p>
                 </div>
             </div>
         </div>
@@ -224,7 +380,7 @@
 
     <!-- Footer -->
     <footer>
-        &copy; 2024 The German Dream. All rights reserved. | <a href="#">Privacy Policy</a>
+        © 2024 The German Dream. All rights reserved. | <a href="#">Privacy Policy</a>
     </footer>
 
     <!-- Smooth Scroll JavaScript -->
