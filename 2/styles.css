@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl; /* Ensures the text aligns properly for Arabic */
+}
+
+header {
+    background-color: #000;
+    padding: 10px;
+    text-align: center;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.banner {
+    background-color: #ffcc00;
+    text-align: center;
+    padding: 50px 0;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    border-bottom: 5px solid red;
+}
+
+.services {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.services h2 {
+    font-size: 36px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.vip-services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.vip-box {
+    background-color: black;
+    color: #ffcc00;
+    padding: 50px;
+    width: 150px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 10px;
+}
